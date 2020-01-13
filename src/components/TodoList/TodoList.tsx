@@ -3,23 +3,29 @@ import {ITodo} from '../../interfaces';
 
 // или interface
 type TodoListProps = {
-    todos: ITodo[],
+    data: ITodo[],
+    onToggleDone(id: number): void,
+    onRemove(id: number): void,
 }
 
-const TodoList: React.FC<TodoListProps> = ({todos}) => {
-    
+const TodoList: React.FC<TodoListProps> = ({data, onRemove, onToggleDone}) => {
+    if (data.length === 0) {
+        return (<p className="center">планов нет</p>)
+    }
     return (
         <ul>
-            {todos.map(item => {
+            {data.map(item => {
                 const classes = ['todo-item'];
                 if (item.done) classes.push('done');
 
                 return (
                     <li className={classes.join(' ')} key={item.id}>
                         <label>
-                            <input type="checkbox" checked={item.done} />
+                            <input type="checkbox" checked={item.done} onChange={() => onToggleDone(item.id)} />
                             <span>{item.text}</span>
-                            <i className="material-icons red-text">delete</i>
+                            <i className="material-icons red-text" onClick={() => onRemove(item.id)} >
+                                delete
+                            </i>
                         </label>
                     </li>
                 )
