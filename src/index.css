@@ -15,3 +15,26 @@ code {
 .plr10 {
   padding: 0 10px;
 }
+
+
+.todo-item {
+  margin-bottom: 10px;
+}
+
+.todo-item.done span {
+  text-decoration: line-through;
+}
+
+.todo-item label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  background: #f3f3f3;
+}
+
+.todo-item i {
+  z-index: 2;
+}
