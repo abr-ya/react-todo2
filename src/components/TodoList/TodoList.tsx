@@ -5,7 +5,7 @@ import {ITodo} from '../../interfaces';
 type TodoListProps = {
     data: ITodo[],
     onToggleDone(id: number): void,
-    onRemove(id: number): void,
+    onRemove(e: React.MouseEvent, id: number): void,
 }
 
 const TodoList: React.FC<TodoListProps> = ({data, onRemove, onToggleDone}) => {
@@ -23,7 +23,7 @@ const TodoList: React.FC<TodoListProps> = ({data, onRemove, onToggleDone}) => {
                         <label>
                             <input type="checkbox" checked={item.done} onChange={() => onToggleDone(item.id)} />
                             <span>{item.text}</span>
-                            <i className="material-icons red-text" onClick={() => onRemove(item.id)} >
+                            <i className="material-icons red-text" onClick={(e) => onRemove(e, item.id)} >
                                 delete
                             </i>
                         </label>

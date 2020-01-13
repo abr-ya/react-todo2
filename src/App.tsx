@@ -25,8 +25,12 @@ const App: React.FC = () => {
 		}));
 	}
 
-	const removeHandler = (id: number) => {
-		setData(prev => prev.filter(item => item.id !== id));
+	const removeHandler = (e: React.MouseEvent, id: number) => {
+		e.preventDefault();
+		const removeConfirm = window.confirm('Точно удаляем?!');
+		if (removeConfirm) {
+			setData(prev => prev.filter(item => item.id !== id));
+		}
 	}
 
 	return (
