@@ -43,7 +43,7 @@ const TodosPage: React.FC = () => {
 
 	return (
 		<>
-			<h1>My To Do App 2</h1>
+			<h1>Список дел</h1>
 			<TodoForm onAdd={addHandler} />
 			<TodoList data={data} onRemove={removeHandler} onToggleDone={toggleDoneHandler} />	
 		</>
