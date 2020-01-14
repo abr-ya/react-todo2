@@ -1,14 +1,7 @@
 import React from 'react';
-import {ITodo} from '../../interfaces';
+import {ITodoListProps} from '../../interfaces';
 
-// или interface
-type TodoListProps = {
-    data: ITodo[],
-    onToggleDone(id: number): void,
-    onRemove(e: React.MouseEvent, id: number): void,
-}
-
-const TodoList: React.FC<TodoListProps> = ({data, onRemove, onToggleDone}) => {
+const TodoList: React.FC<ITodoListProps> = ({data, onRemove, onToggleDone}) => {
     if (data.length === 0) {
         return (<p className="center">планов нет</p>)
     }
