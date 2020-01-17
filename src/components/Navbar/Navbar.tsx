@@ -8,6 +8,7 @@ const Navbar: React.FC = (props) => (
             <ul className="right hide-on-med-and-down">
                 <li><NavLink to="/">Список дел</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/test">Test</NavLink></li>
             </ul>
         </div>
     </nav>
